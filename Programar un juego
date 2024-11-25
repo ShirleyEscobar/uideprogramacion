@@ -1,0 +1,14 @@
+import random
+def jugar_piedra_papel_tijera():
+  """
+Simula una partida de Piedra, Papel o Tijera.
+Returns:
+str: El resultado de la partida (gana jugador, gana computadora o empate).
+"""
+opciones = ["piedra", "papel", "tijera"]
+while True:
+# Jugada del usuario
+jugada_usuario = input("Elige tu jugada (piedra, papel o tijera): ").lower()
+while jugada_usuario not in opciones:
+print("Jugada inválida. Por favor, elige piedra, papel o tijera.")
+jugada_usuario = input("Elige tu jugada (piedra, papel o tijera): ").lower()
