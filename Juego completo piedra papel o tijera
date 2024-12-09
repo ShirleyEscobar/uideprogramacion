@@ -1,0 +1,42 @@
+import random
+
+def jugar_piedra_papel_tijera():
+  """
+  Simula una partida de Piedra, Papel o Tijera.
+
+  Returns:
+    str: El resultado de la partida (gana jugador, gana computadora o empate).
+  """
+
+  opciones = ["piedra", "papel", "tijera"]
+
+  while True:
+    # Jugada del usuario
+    jugada_usuario = input("Elige tu jugada (piedra, papel o tijera): ").lower()
+
+    while jugada_usuario not in opciones:
+      print("Jugada inválida. Por favor, elige piedra, papel o tijera.")
+      jugada_usuario = input("Elige tu jugada (piedra, papel o tijera): ").lower()
+
+    # Jugada de la computadora
+    jugada_computadora = random.choice(opciones)
+
+    print(f"La computadora eligió: {jugada_computadora}")
+
+    # Determinar ganador
+    if jugada_usuario == jugada_computadora:
+      print("¡Empate!")
+    elif (jugada_usuario == "piedra" and jugada_computadora == "tijera") or \
+         (jugada_usuario == "papel" and jugada_computadora == "piedra") or \
+         (jugada_usuario == "tijera" and jugada_computadora == "papel"):
+      print("¡Ganaste!")
+    else:
+      print("¡Perdiste!")
+
+    # ¿Jugar otra vez?
+    jugar_de_nuevo = input("¿Quieres jugar otra vez? (si/no): ").lower()
+    if jugar_de_nuevo != "si":
+      break
+
+# Iniciar el juego
+jugar_piedra_papel_tijera()
